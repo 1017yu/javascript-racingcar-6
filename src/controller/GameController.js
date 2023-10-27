@@ -12,7 +12,6 @@ class GameController {
 
   constructor() {
     this.#inputView = InputView;
-    this.ready();
   }
 
   async ready() {
