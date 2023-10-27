@@ -10,8 +10,7 @@ const ERROR_MESSAGES = Object.freeze({
   positive: '[ERROR] 1 이상의 숫자를 입력해주세요.',
   integer: '[ERROR] 숫자만 입력 가능합니다.',
   specialChar: '[ERROR] 특수문자는 사용하실 수 없습니다.',
+  whiteSpace: '[ERROR] 입력에 공백은 포함할 수 없습니다.',
 });
 
-const rSpecialChar = /[!@#$%^&*()_+{}[\]<>.?~\\=]/g;
-
-export { GUIDE_MESSAGES, ERROR_MESSAGES, rSpecialChar };
+export { GUIDE_MESSAGES, ERROR_MESSAGES };
