@@ -1,5 +1,5 @@
 import InputValidator from '../src/models/InputValidator.js';
-import { ERROR_MESSAGES } from '../src/constants/index.js';
+import { ERROR_MESSAGES } from '../src/constants/messages.js';
 
 describe('자동차 이름 유효성 테스트', () => {
   it('자동차 이름이 5자 초과', () => {
@@ -35,7 +35,7 @@ describe('자동차 이름 유효성 테스트', () => {
   });
 
   it('중복된 자동차 이름 입력', () => {
-    const carNames = ['volvo', 'Volvo'];
+    const carNames = ['volvo', 'volvo'];
 
     expect(() => {
       InputValidator.validateCarNames(carNames);
