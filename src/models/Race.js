@@ -16,6 +16,7 @@ class Race {
 
   /**
    * 주어진 조건에 따라 레이싱을 진행한다.
+   * TODO: scoreBoard의 type 변경
    * @param {{[x: string]: number}} scoreBoard
    * @param {number} laps
    * @returns {[string, number][]}
@@ -26,9 +27,7 @@ class Race {
 
     while (laps) {
       this.#drive(scoreBoards);
-      this.#showScoreBoard(scoreBoards);
       this.#outputView.print(whiteSpace);
-
       laps--;
     }
 
@@ -36,11 +35,12 @@ class Race {
   }
 
   #drive(scoreBoards) {
-    scoreBoards.forEach(([_, score]) => {
+    scoreBoards.forEach(scoreBoard => {
       this.#gasStation();
       this.#getBooster();
-      this.#booster ? (score += OPTIONS.point) : score;
+      if (this.#booster) scoreBoard += OPTIONS.point;
     });
+    this.#showScoreBoard(scoreBoards);
   }
 
   /**
