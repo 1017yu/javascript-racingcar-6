@@ -1,5 +1,6 @@
 import { ERROR_MESSAGES } from '../constants/messages.js';
 import OPTIONS from '../constants/options.js';
+import REGEXS from '../constants/regexs.js';
 import InputError from '../errors/InputError.js';
 
 class LapsValidator {
@@ -22,7 +23,7 @@ class LapsValidator {
    * @returns {boolean}
    */
   #isInvalidType() {
-    return !Number.isInteger(parseInt(this.#laps, 10));
+    return !REGEXS.rPositiveInt.test(this.#laps);
   }
 
   /**
@@ -30,7 +31,7 @@ class LapsValidator {
    * @param {number} laps
    */
   isValid(laps) {
-    this.#laps = parseInt(laps, 10);
+    this.#laps = laps;
 
     if (this.#isInvalidNumberRange())
       throw new InputError(ERROR_MESSAGES.positive);
